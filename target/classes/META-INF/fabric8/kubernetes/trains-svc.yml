@@ -1,0 +1,26 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    fabric8.io/git-commit: dec4633ecc15f55cbfc4fc76a2796ebf1a0c8516
+    fabric8.io/git-branch: master
+    prometheus.io/scrape: "true"
+    prometheus.io/port: "9779"
+  labels:
+    expose: "true"
+    provider: fabric8
+    project: trains
+    version: 1.0-SNAPSHOT
+    group: paytm
+  name: trains
+spec:
+  ports:
+  - name: http
+    port: 80
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    project: trains
+    provider: fabric8
+    group: paytm
